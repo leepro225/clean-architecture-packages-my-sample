@@ -17,8 +17,8 @@
             "path": "packages/di"
         },
         {
-            "name": "presentation",
-            "path": "packages/presentation"
+            "name": "presentation-type",
+            "path": "packages/presentation-type"
         }
     ],
     "settings": {}

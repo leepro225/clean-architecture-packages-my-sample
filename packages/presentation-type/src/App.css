@@ -1,0 +1,184 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.centered-column {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  align-items: center;
+  padding: 2rem;
+}
+
+.create-counter-button {
+  width: fit-content;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  border: none;
+  color: white;
+  font-size: 1.25rem;
+  background-color: rgb(25, 129, 220);
+  cursor: pointer;
+  transition: 150ms transform, 100ms background-color;
+}
+.create-counter-button:hover {
+  transform: scale(1.05);
+}
+.create-counter-button:active {
+  background-color: rgb(51, 154, 244);
+}
+
+.counter-filter {
+  margin-bottom: 1rem;
+}
+.counter-filter input {
+  width: 515px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border: 1px solid rgb(112, 112, 112);
+  border-radius: 6px;
+  box-shadow: 4px 4px 10px 0px rgba(227, 227, 227, 0.75);
+}
+
+.counter-list {
+  height: 500px;
+  width: 450px;
+  border: 1px solid rgb(172, 172, 172);
+  border-radius: 6px;
+  gap: 1rem;
+}
+
+.counter {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 6px;
+  padding: 1rem;
+  background-color: rgb(247, 247, 247);
+  box-shadow: 4px 4px 10px 0px rgba(227, 227, 227, 0.75);
+}
+.counter .counter-label {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+.counter .counter-label-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.counter .counter-label button {
+  background-color: none;
+  border: none;
+  background: none;
+  transform: scale(1.7);
+  cursor: pointer;
+}
+.counter .counter-label button:hover {
+  transform: scale(1.8);
+}
+.counter .counter-label input {
+  padding: 0.5rem;
+  border: 1px solid rgb(146, 146, 146);
+  border-radius: 3px;
+}
+.counter .counter-amount {
+  margin-top: 1rem;
+  font-size: 2rem;
+}
+.counter .counter-body {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.counter .counter-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+.counter .counter-button > button {
+  width: 100%;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem;
+  color: white;
+  transition: 150ms transform, 100ms background-color;
+  cursor: pointer;
+}
+.counter .counter-button > button.decrement {
+  background-color: rgb(221, 70, 16);
+}
+.counter .counter-button > button.decrement:hover:not([disabled]) {
+  background-color: rgb(255, 104, 49);
+}
+.counter .counter-button > button.decrement:active:not([disabled]) {
+  background-color: rgb(255, 126, 79);
+}
+.counter .counter-button > button.decrement:disabled {
+  background-color: rgb(182, 121, 99);
+}
+.counter .counter-button > button.increment {
+  background-color: rgb(16, 129, 221);
+}
+.counter .counter-button > button.increment:hover:not([disabled]) {
+  background-color: rgb(59, 161, 244);
+}
+.counter .counter-button > button.increment:active:not([disabled]) {
+  background-color: rgb(88, 180, 255);
+}
+.counter .counter-button > button.increment:disabled {
+  background-color: rgb(147, 172, 192);
+}
+.counter .counter-button > button:hover:not([disabled]) {
+  transform: scale(1.05);
+}
+.counter .counter-button > input {
+  width: 90%;
+  border-radius: 6px;
+  border: 1px solid rgb(147, 147, 147);
+  padding: 0.3rem;
+  text-align: center;
+}

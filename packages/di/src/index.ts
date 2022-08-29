@@ -1,1 +1,1 @@
-export const Foo = 1;
+export * from "./counter";
