@@ -16,8 +16,7 @@
     "typescript": "^4.8.2",
     "web-vitals": "^2.1.4",
     "core": "*",
-    "di": "*",
-    "data": "*"
+    "di": "*"
   },
   "scripts": {
     "start": "react-scripts start",

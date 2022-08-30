@@ -9,5 +9,5 @@ export abstract class CounterRepository {
 }
 
 /**
- * 4. 레파지토리를 만든다.
+ * 4. 레파지토리 인터페이스를 만든다.
  */
