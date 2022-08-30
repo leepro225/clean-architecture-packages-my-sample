@@ -12,25 +12,33 @@ type CreateUsecase = {
 type GetAllUsecase = {
   execute(): core.Counter[];
 }
+type DeleteUsecase = {
+  execute(key: string): void;
+}
 
 function App() {
   const [allCounters, setAllCounters] = useState<core.Counter[]>([]);
-  let createCounterUsecase:CreateUsecase;
-  let getAllCountersUsecase:GetAllUsecase;
+  let createCounterUsecase: CreateUsecase;
+  let getAllCountersUsecase: GetAllUsecase;
+  let deleteCounterUsecase: DeleteUsecase;
 
   useEffect(() => {
     // 카운터 유스케이스 초기화
     const localStorageService = new LocalStorageServiceImpl();
     const conuterRopository = new data.CounterRepositoryImpl(localStorageService); // FixMe: data 를 바라보는 게 아닌 di 를 바라보도록 수정 필요
-    createCounterUsecase = new core.CreateCounterUsecaseImpl(conuterRopository); // 생성
+    createCounterUsecase = new core.CreateCounterUsecaseImpl(conuterRopository); // 생성 FixMe: 인스턴스를 외부에서 주입받도록 변경하기 
     getAllCountersUsecase = new core.GetAllCountersUsecaseImpl(conuterRopository); // 모든 카운터 가져오기
-    // 삭제
-    // 변경 감지(?)
+    deleteCounterUsecase = new core.DeleteCounterUsecaseImpl(conuterRopository); // 삭제
     setAllCounters(getAllCountersUsecase.execute()); // 최초 로드 시, 모든 카운터를 가져온다.
   }, []);
 
   const createCounter = useCallback(() => {
-    const newCounter:core.Counter = createCounterUsecase.execute();
+    createCounterUsecase.execute();
+    setAllCounters(getAllCountersUsecase.execute()); 
+  }, []);
+
+  const deleteCounter = useCallback((counterId: string) => {
+    deleteCounterUsecase.execute(counterId);
     setAllCounters(getAllCountersUsecase.execute()); 
   }, []);
 
@@ -46,14 +54,15 @@ function App() {
         </div>
 
         <h2 style={{marginTop: "2rem"}}>Counters</h2>
-        <div className="counter-filter">
-            <input/>
-        </div>
+
         <div className="centered-column counter-list">
           {
             allCounters.map((item) => {
               return (
-                <Counter key={item.id}/>
+                <Counter 
+                  key={item.id}
+                  deleteCounter={() => {deleteCounter(item.id)}}
+                />
               )
             })
           }

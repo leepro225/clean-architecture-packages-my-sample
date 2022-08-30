@@ -3,6 +3,8 @@ import { Counter } from "./entities/counter.entity";
 export abstract class CounterRepository {
     abstract createCounter(counterInfo: Counter): Counter;
 
+    abstract deleteCounter(counterId: string): void;
+
     abstract getAllCounters(): Counter[];
 }
 

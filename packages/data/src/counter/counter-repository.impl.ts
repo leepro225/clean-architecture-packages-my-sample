@@ -6,7 +6,6 @@ export class CounterRepositoryImpl implements core.CounterRepository {
     get counterIds(): string[] {
         const counterIds = JSON.parse(this.localStorageService.get("counter-ids"));
 
-        /** for app being used for first time */
         if (counterIds == null) [];
 
         return counterIds.ids;
@@ -32,12 +31,18 @@ export class CounterRepositoryImpl implements core.CounterRepository {
         return counterInfo;
     }
 
+    deleteCounter(counterId: string): void {
+        this.localStorageService.remove(counterId);
+        this.counterIds = this.counterIds.filter(id => {
+            return id !== counterId;
+        });
+    }
+
     getAllCounters(): core.Counter[] {
         return this.counterIds.map((id) => this.getCounterById(id));
     }
 
     private addCounterId(counterId: string): void {
-        console.log('addCounterId')
         this.counterIds = [...this.counterIds, counterId];
     }
 
