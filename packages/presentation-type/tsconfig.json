@@ -4,8 +4,10 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "DOM"
     ],
+    "types": ["reflect-metadata"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

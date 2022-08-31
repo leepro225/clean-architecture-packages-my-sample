@@ -8,6 +8,10 @@
       "build": "lerna run build",
       "graph": "nx graph"
   },
+  "dependencies": {
+    "inversify": "6.0.1",
+    "reflect-metadata": "0.1.13"
+  },
   "devDependencies": {
       "lerna": "^5.1.8",
       "nx": "^14.4.3",

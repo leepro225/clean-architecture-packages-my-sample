@@ -1,5 +1,7 @@
 import { Usecase } from "src/base/usecase.interface";
 import { CounterRepository } from "src/counter/counter-repository.interface";
+import {injectable} from "inversify";
+import "reflect-metadata";
 
 import { Counter } from "../entities/counter.entity";
 
@@ -13,6 +15,7 @@ export abstract class CreateCounterUsecase implements Usecase<Counter> {
 /**
  * 위 인터페이스의 구현체
  */
+ @injectable()
 export class CreateCounterUsecaseImpl implements CreateCounterUsecase {
     constructor(private counterRepository: CounterRepository) {}
 
